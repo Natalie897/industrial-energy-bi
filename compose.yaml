@@ -1,0 +1,19 @@
+# ЛОКАЛЬНАЯ УЧЕБНАЯ среда, не применять такие учетные данные в production.
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: energybi
+      POSTGRES_PASSWORD: energybi_demo_only
+      POSTGRES_DB: industrial_bi
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U energybi -d industrial_bi"]
+      interval: 5s
+      timeout: 5s
+      retries: 8
+volumes:
+  postgres_data:

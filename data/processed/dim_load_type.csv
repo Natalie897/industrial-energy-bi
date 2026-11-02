@@ -1,0 +1,4 @@
+load_type_key,load_type,demo_tariff_krw_kwh
+1,Light Load,95.0
+2,Medium Load,125.0
+3,Maximum Load,165.0
